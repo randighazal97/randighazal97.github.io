@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internship | Randi Ghazal</title>
+<meta name="description" content="Randi Ghazal's internship as a Business Analyst Intern at Mindsets, plus earlier internships at MSD and Malia Group.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="index.html">Randi <span>Ghazal</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="fyp.html">Final Year Project</a></li>
+    <li><a href="internship.html" aria-current="page">Internship</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="highlights.html">Highlights</a></li>
+  </ul></nav>
+</div></header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Internship · INDE 500 · Mindsets, Beirut · June to December 2026</p>
+    <h1>Business Analyst Intern at Mindsets</h1>
+    <p class="lede">Mindsets is a Beirut-based consulting firm. I worked first with its Strategy and Decision Advisors team on market research and client proposals, then rotated to another business unit, Mindsets Deventures, where I worked on renewable-energy investment screening.</p>
+    <ul class="tags">
+      <li class="tag">Market entry</li><li class="tag">Public sector</li><li class="tag">Financial modeling</li><li class="tag">Linear programming</li><li class="tag">Excel</li><li class="tag">Python</li>
+    </ul>
+  </section>
+
+  <h2>What I worked on</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Market-entry assessments: Georgia and South Africa</h3>
+      <p>I researched each country's government institutions, public-sector demand, procurement systems and consulting opportunities. I then structured the findings on market size, industry trends and the competitive landscape into material the team used in its analysis. I also supported two proposals: a higher-education demand study for an institution in Qatar and a project in South Africa.</p>
+    </div>
+    <div class="card">
+      <h3>Solar Lead Vetting Tool: Italy and Cyprus</h3>
+      <p>I built an Excel tool to screen solar and battery-storage acquisition leads. It models hourly generation, project and fund cash flows, and a weighted technical scoring matrix, so the team can compare leads on the same basis before spending time on due diligence.</p>
+    </div>
+  </div>
+
+  <h2>Going further: optimizing the battery schedule</h2>
+  <p>The tool's first version charged the battery in a fixed 8am-to-3pm window and discharged it from 5pm to 9pm. I asked whether a fixed window was leaving revenue on the table, so I wrote a Python model that chooses the hourly charge, discharge and direct-sale schedule by linear optimization. It runs against twelve monthly representative price days, with the battery's state of charge carried consistently through each day. I also ran sensitivity analyses on round-trip efficiency and on how much solar output may be routed to the battery. Built-in validation checks confirm that the optimized schedule respects every physical limit.</p>
+  <figure>
+    <img src="assets/mindsets-dispatch.png" alt="Bar chart of an optimized daily battery schedule: charging from about 8am to 2pm and discharging from 7pm to 9pm.">
+    <figcaption>Optimized charge (green) and discharge (red) schedule for a representative day. The model charges from midday solar and discharges into the evening price peak. Illustrative output with no client data shown.</figcaption>
+  </figure>
+
+  <div class="reflection">
+    <h3>Reflection</h3>
+    <h4>What I learned</h4>
+    <p>Consulting taught me to start from the client's question rather than from the method. Most of my time on the market-entry work went into finding, checking and structuring information from many sources, then presenting it so a busy reader could act on it. I learned that a clear slide is often worth more than a complex model.</p>
+    <h4>Applying my coursework to a new situation</h4>
+    <p>The battery schedule is where my Operations Research courses (INDE 302 and 303) moved from homework to real work. I recognized a fixed rule of thumb as a decision that could be optimized: decision variables for each hour, capacity and state-of-charge constraints, and revenue as the objective. INDE 301 (Financial Engineering) helped me read the project and fund cash flows in the vetting tool. In my internship report I listed INDE 535, INDE 302/303 and INDE 301 as the three courses that helped me most, and these projects are the reason.</p>
+    <h4>Other perspectives</h4>
+    <p>I also noticed a problem in how the team itself works. Several proposals compete for the same analysts and deadlines, and staffing is decided informally. I proposed it as a resource-allocation problem, where a model assigns people to proposals based on deadlines, expertise and workload. Looking at my own workplace through an engineering lens is a habit I want to keep.</p>
+    <h4>Challenges</h4>
+    <p>Moving from one business unit to another mid-internship meant learning a new domain, electricity markets and storage, very quickly. I handled it by building small models first and checking every assumption against the existing workbook before changing anything.</p>
+  </div>
+
+  <h2>Earlier internships</h2>
+  <ul class="timeline">
+    <li>
+      <p class="meta">MSD · Beirut · July to August 2025</p>
+      <h3 style="margin-top:2px">Rotational Intern, pharmaceutical operations</h3>
+      <p>Rotated across more than five departments and worked with team members across manufacturing, supply chain and quality. Analyzed workflows and KPIs for two to three core processes, supporting recommendations to improve coordination between teams.</p>
+    </li>
+    <li>
+      <p class="meta">Malia Group (Cosmaline, Pharmaline) · Fanyoun · March to April 2025</p>
+      <h3 style="margin-top:2px">Operations Intern</h3>
+      <p>Analyzed production workflows, inventory levels and supplier coordination across two production lines. Tracked material availability for 5 to 7 core SKUs to help reduce minor line stoppages and keep line uptime at about 90 to 95%.</p>
+    </li>
+  </ul>
+</main>
+
+<footer>
+  <span>© 2026 Randi Ghazal · Industrial Engineering, AUB</span>
+  <span><a href="mailto:rhg09@mail.aub.edu">rhg09@mail.aub.edu</a> · <a href="https://www.linkedin.com/in/randi-ghazal-7138972a2/" target="_blank" rel="noopener">LinkedIn</a></span>
+</footer>
+</body>
+</html>

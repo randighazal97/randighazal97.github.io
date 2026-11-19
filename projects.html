@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Randi Ghazal</title>
+<meta name="description" content="Projects by Randi Ghazal: election-alliance optimization research, the Beirut 2030 sustainability education program, and a national case competition win.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .diagram { width: 100%; height: auto; font-family: 'Inter', sans-serif; }
+  .diagram .box { fill: #fff; stroke: #7a1531; stroke-width: 1.5; }
+  .diagram .core { fill: #7a1531; }
+  .diagram text { font-size: 13px; fill: #1d1d22; }
+  .diagram .core-t { fill: #fff; font-weight: 600; font-size: 14px; }
+  .diagram .lbl { font-size: 11px; fill: #5d5d68; text-transform: uppercase; letter-spacing: .08em; }
+  .diagram path { stroke: #7a1531; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+</style>
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="index.html">Randi <span>Ghazal</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="fyp.html">Final Year Project</a></li>
+    <li><a href="internship.html">Internship</a></li>
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="highlights.html">Highlights</a></li>
+  </ul></nav>
+</div></header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Projects</p>
+    <h1>Optimization research, consulting strategy and community impact</h1>
+    <p class="lede">Three projects outside my FYP and internship, each using the same engineering toolkit on a very different problem.</p>
+    <ul class="onpage">
+      <li><a href="#elections">1 · Election-alliance optimization</a></li>
+      <li><a href="#beirut2030">2 · Beirut 2030: EduSustain Lebanon</a></li>
+      <li><a href="#case">3 · LAU Case Competition with MSD</a></li>
+    </ul>
+  </section>
+
+  <!-- ===================== PROJECT 1 ===================== -->
+  <section class="project" id="elections">
+    <p class="eyebrow">Project 1 · Research · 2026 to present</p>
+    <h2 style="margin-top:4px">Optimizing strategic alliances in Lebanese parliamentary elections</h2>
+    <ul class="tags"><li class="tag">MILP</li><li class="tag">Robust optimization</li><li class="tag">Python</li><li class="tag">Research</li></ul>
+    <p class="meta">AUB Department of Industrial Engineering and Management · supervised by Prof. Abdul Jawad Alami · with Marwan Shamseddine</p>
+    <p>Lebanon's proportional electoral law makes alliance-building a combinatorial problem. Which parties should join which lists in which districts, and which candidates should fill each list's seats? I am co-authoring research that formulates these decisions as a <strong>mixed-integer linear program</strong> in Python. It includes electoral-law constraints, political compatibility between parties, and historical election data.</p>
+    <p>Voter support is never known in advance, so we apply <strong>robust optimization</strong>: the model looks for alliance and allocation decisions that still perform well when support moves within a plausible range, rather than decisions that are optimal for one guess.</p>
+
+    <figure>
+      <svg class="diagram" viewBox="0 0 760 250" role="img" aria-label="Model structure: inputs (electoral law, party compatibility, historical results, uncertain voter support) feed a robust MILP, which outputs coalition decisions and candidate allocation.">
+        <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a1531" stroke="none"/></marker></defs>
+        <text class="lbl" x="20" y="20">Inputs</text>
+        <rect class="box" x="20" y="32" width="210" height="40" rx="8"/><text x="34" y="57">Electoral-law constraints</text>
+        <rect class="box" x="20" y="82" width="210" height="40" rx="8"/><text x="34" y="107">Political compatibility</text>
+        <rect class="box" x="20" y="132" width="210" height="40" rx="8"/><text x="34" y="157">Historical election data</text>
+        <rect class="box" x="20" y="182" width="210" height="40" rx="8" stroke-dasharray="4 3"/><text x="34" y="207">Uncertain voter support</text>
+        <path d="M232,52 C280,52 280,125 300,125"/>
+        <path d="M232,102 C270,102 270,125 300,125"/>
+        <path d="M232,152 C270,152 270,125 300,125"/>
+        <path d="M232,202 C280,202 280,125 300,125"/>
+        <text class="lbl" x="304" y="20">Model</text>
+        <rect class="core" x="304" y="85" width="190" height="80" rx="10"/>
+        <text class="core-t" x="399" y="120" text-anchor="middle">Robust MILP</text>
+        <text class="core-t" x="399" y="142" text-anchor="middle" style="font-weight:400;font-size:12px">solved in Python</text>
+        <path d="M496,110 C520,110 520,77 540,77"/>
+        <path d="M496,140 C520,140 520,172 540,172"/>
+        <text class="lbl" x="544" y="20">Decisions</text>
+        <rect class="box" x="544" y="55" width="196" height="44" rx="8"/><text x="558" y="82">Coalition formation</text>
+        <rect class="box" x="544" y="150" width="196" height="44" rx="8"/><text x="558" y="177">Candidate allocation</text>
+      </svg>
+      <figcaption>How the model is structured. The research is ongoing and unpublished, so only the general structure is shown here.</figcaption>
+    </figure>
+
+    <div class="reflection">
+      <h3>Reflection</h3>
+      <p><strong>What I learned.</strong> In INDE 302 and 303, the problems arrived already formulated. Here, most of the work was deciding <em>what</em> to model: which rules of the electoral law become hard constraints, and how to turn something as soft as political compatibility into numbers. Formulation is a modeling judgment, not just algebra.</p>
+      <p><strong>Perspectives.</strong> Election models touch real people and real politics, so we have to be careful about what the model claims. A model can show what coalitions are mathematically favorable. It cannot say what is right for voters. Working with a professor and a co-author also taught me how research is checked: every modeling choice has to survive someone else's questions.</p>
+      <p><strong>Moving forward.</strong> Robust optimization is the tool I most want to deepen in graduate school. Uncertainty is everywhere in planning, from voter support to restaurant demand, and this project showed me a principled way to plan for it.</p>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECT 2 ===================== -->
+  <section class="project" id="beirut2030">
+    <p class="eyebrow">Project 2 · Community · August 2025 to present</p>
+    <h2 style="margin-top:4px">Beirut 2030: EduSustain Lebanon</h2>
+    <ul class="tags"><li class="tag">SDGs</li><li class="tag">Program design</li><li class="tag">Event operations</li><li class="tag">Teaching</li></ul>
+    <p>Beirut 2030 is a program that brings the UN Sustainable Development Goals into Lebanese schools. Our team, EduSustain Lebanon, designed and delivered <strong>more than 15 interactive sessions</strong>, mentoring programs and awareness activities, <strong>reaching more than 300 students</strong>. We also earned the <strong>interdisciplinary award at AUB STEM Week</strong> among more than 25 teams.</p>
+    <div class="stats">
+      <div class="stat"><b>15+</b><span>sessions and activities delivered</span></div>
+      <div class="stat"><b>300+</b><span>students reached</span></div>
+      <div class="stat"><b>15 schools</b><span>contacted for the Junior 2030 Bootcamp</span></div>
+    </div>
+    <p>Our work included weekly SDG lessons at Ras Beirut School and an agreement with its principal to found a student-led Sustainability Club. We also designed the <strong>Junior 2030 Bootcamp</strong>, a two-day program for grades 10 to 12 that ends in a judged competition. Its challenges were deliberately engineering-flavored: allocating water fairly on a limited budget, choosing an energy mix that balances cost, emissions and reliability, and extending landfill life at minimum cost. Alongside it, a gamified SDG learning app was developed for the bootcamp's soft launch.</p>
+    <figure style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+      <img src="assets/beirut2030-logo.png" alt="Beirut 2030 logo" style="width:150px">
+      <div style="flex:1;min-width:220px">
+        <h3 style="margin-top:0">Evidence: progress report, December 2025 to February 2026</h3>
+        <p style="margin:0 0 10px">Our team's report on the school sessions, the bootcamp's academic design, logistics, budget structure and partner meetings.</p>
+        <a class="btn" href="assets/beirut2030-progress-report.pdf" target="_blank" rel="noopener">Open the report (PDF)</a>
+      </div>
+    </figure>
+
+    <div class="reflection">
+      <h3>Reflection</h3>
+      <p><strong>What I learned.</strong> Designing the bootcamp was an operations problem: fixed dates, an uncertain number of participants, a $30 fee per student, and judges and rooms that had to match the number of teams. We built the budget around categories that scale with attendance and treated extras like sponsored t-shirts as upgrades, not dependencies. That is the same thinking as planning capacity under uncertain demand.</p>
+      <p><strong>Perspectives.</strong> Students' feedback changed our teaching. Surveys after each session showed that they engaged most in interactive activities, so we shifted our lessons toward them. An outside mentor, IBTIKARI, pushed us to think about how the program could sustain itself after the bootcamp. That made me see sustainability in the project itself, not only in its topic.</p>
+      <p><strong>Transfer.</strong> Explaining trade-offs such as fairness against cost to high-school students forced me to say clearly what an optimization model does, without the math. I now use that skill when I present technical results to non-technical audiences, including our FYP partner.</p>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECT 3 ===================== -->
+  <section class="project" id="case">
+    <p class="eyebrow">Project 3 · Consulting · April to June 2025</p>
+    <h2 style="margin-top:4px">1st Place, LAU Case Competition, with MSD</h2>
+    <ul class="tags"><li class="tag">Supply chain</li><li class="tag">Contingency planning</li><li class="tag">Healthcare</li><li class="tag">Teamwork</li></ul>
+    <p>Our team won <strong>first place nationally</strong> at the LAU Case Competition, in a case set with the pharmaceutical company MSD. As the team's <strong>Supply Chain Manager</strong>, I developed a contingency plan to keep two essential medicines available in Lebanon during a crisis, within a budget of under <strong>$500,000</strong>.</p>
+    <p>In the same season I also competed in the IISE AUB × Wolf of Bey case competition. There, our strategy for an e-commerce brand received the <strong>Strategic Excellence Award</strong> for top-tier strategy design.</p>
+
+    <figure>
+      <svg class="diagram" viewBox="0 0 760 170" role="img" aria-label="Case at a glance: the challenge (keep two essential medicines available in a crisis), the constraint (budget under 500,000 dollars), my role (supply chain manager) and the result (first place nationally).">
+        <rect class="box" x="10" y="20" width="170" height="130" rx="10"/>
+        <text class="lbl" x="26" y="48">Challenge</text>
+        <text x="26" y="76">Keep 2 essential</text><text x="26" y="96">medicines available</text><text x="26" y="116">in a crisis</text>
+        <rect class="box" x="200" y="20" width="170" height="130" rx="10"/>
+        <text class="lbl" x="216" y="48">Constraint</text>
+        <text x="216" y="76">Budget under</text><text x="216" y="100" style="font-size:20px;font-weight:700;fill:#7a1531">$500,000</text>
+        <rect class="box" x="390" y="20" width="170" height="130" rx="10"/>
+        <text class="lbl" x="406" y="48">My role</text>
+        <text x="406" y="76">Supply Chain</text><text x="406" y="96">Manager: built the</text><text x="406" y="116">contingency plan</text>
+        <rect class="core" x="580" y="20" width="170" height="130" rx="10"/>
+        <text class="lbl" x="596" y="48" style="fill:#f3d9e1">Result</text>
+        <text class="core-t" x="596" y="84" style="font-size:22px">1st place</text><text class="core-t" x="596" y="108" style="font-weight:400">nationally</text>
+      </svg>
+      <figcaption>The case at a glance.</figcaption>
+    </figure>
+
+    <div class="reflection">
+      <h3>Reflection</h3>
+      <p><strong>What I learned.</strong> A case competition squeezes a consulting project into days. I learned to frame the problem quickly, divide the work, and protect the time needed to bring it back into one story. My part, the supply chain, had to be both realistic and affordable, which meant prioritizing ruthlessly within the budget.</p>
+      <p><strong>Perspectives.</strong> Planning for medicine availability in a crisis is not abstract in Lebanon. Thinking about patients who depend on two specific medicines made the stakes concrete and pushed us to build in redundancy rather than plan only for the expected case.</p>
+      <p><strong>Transfer.</strong> This was my first experience of the consulting style of work, which I went on to do for real during my internship at Mindsets. Its core idea, planning for disruption within a fixed budget, comes back in my research on robust optimization.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Randi Ghazal · Industrial Engineering, AUB</span>
+  <span><a href="mailto:rhg09@mail.aub.edu">rhg09@mail.aub.edu</a> · <a href="https://www.linkedin.com/in/randi-ghazal-7138972a2/" target="_blank" rel="noopener">LinkedIn</a></span>
+</footer>
+</body>
+</html>

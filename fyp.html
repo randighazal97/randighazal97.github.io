@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Final Year Project | Randi Ghazal</title>
+<meta name="description" content="Final Year Project: an AI-powered franchise intelligence platform for Eddy's Hospitality Group. Randi Ghazal leads demand forecasting.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="index.html">Randi <span>Ghazal</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="fyp.html" aria-current="page">Final Year Project</a></li>
+    <li><a href="internship.html">Internship</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="highlights.html">Highlights</a></li>
+  </ul></nav>
+</div></header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Final Year Project · INDE 501 / 502 · 2026–2027</p>
+    <h1>An AI-powered franchise intelligence platform for Eddy's Hospitality Group</h1>
+    <p class="lede">Eddy's runs three Lebanese street-food brands across seven branches, around the clock, and still orders stock from experience. Our team is building four working prototypes that help the group decide what to prepare, what to order and what to put on the menu. People stay in charge of the final decision.</p>
+    <ul class="tags">
+      <li class="tag">Demand forecasting</li><li class="tag">Inventory policy</li><li class="tag">Machine learning</li><li class="tag">Simulation</li><li class="tag">Python</li>
+    </ul>
+    <p class="meta">Team: Omar Makarem (project manager), Randi Ghazal, Jane Salameh, Sirine Abi Haidar, Ramzi Doughan · Advisor: Dr. Maher Nouiehed</p>
+  </section>
+
+  <h2>The problem</h2>
+  <p>Perishable food makes ordering a two-sided risk. If a branch orders too little, it runs out. If it orders too much, the surplus is thrown away. Roast beef at Eddy's lasts about two days, and branches order tomorrow's kaake from yesterday's sales. A busy day can empty the shelf, and a quiet one leaves waste. Sales records also understate demand: when an item sells out, recorded sales stop even though customers still wanted it.</p>
+
+  <h2>My role: demand forecasting lead</h2>
+  <p>Of the project's four objectives (warehouse management, demand forecasting, menu update and an internal dashboard), I lead <strong>demand forecasting</strong>. The goal is a daily forecast for each dish and branch, one to seven days ahead, with a low-to-high range rather than a single number. Because Eddy's own data had not arrived yet, I built and tested the method on a public dataset of 8,000 fresh-retail item-store series (FreshRetailNet-50K). The plan is to rerun every test on Eddy's records as soon as they arrive.</p>
+  <ul>
+    <li>Compared sixteen forecasting methods, from simple averages to pretrained models such as Chronos, against a plain 7-day-average benchmark.</li>
+    <li>Selected an average of five boosted-tree models as the final model: <strong>32.0% error against 35.7%</strong> for the benchmark on a held-out week, 3.75 points better (95% interval 3.5 to 4.1).</li>
+    <li>Added forecast ranges and calibrated them so that the 80% range covers 82.6% of outcomes, up from 73.5% before calibration.</li>
+    <li>Next steps this semester: an interpretable second-opinion model, recovering hidden demand from hourly sell-out times, and stress-testing the 18 assumptions behind our stand-in dataset.</li>
+  </ul>
+
+  <figure>
+    <img src="assets/fyp-forecast-errors.png" alt="Dot chart of forecast error by method on a held-out week. The average of five boosted models scores 32.0%, against 35.7% for the 7-day average.">
+    <figcaption>Forecast error of each method on a week the models had never seen, with 95% intervals. The boosted blend wins by a modest but real margin. Public data (FreshRetailNet-50K). Figure: Eddy's FYP team.</figcaption>
+  </figure>
+
+  <h2>The result that surprised us</h2>
+  <p>A more accurate forecast did not give cheaper stock at first. With the textbook safety buffer, the forecast-driven policy cost 6% <em>more</em> than ordering from a plain recent average. It became 14% cheaper only after we sized the buffer from our own forecast errors and set the service target from the real cost of a lost sale compared with the cost of waste. The literature on forecasting for inventory reports the same pattern.</p>
+  <figure>
+    <img src="assets/fyp-policy-costs.png" alt="Bar chart of cost per unit sold for five ordering rules. The reorder-point rule with a forecast model and a buffer aimed at the cost ratio is cheapest at 0.228.">
+    <figcaption>Cost per unit sold in our kitchen simulator (600 items, 30 days, assumed costs) for 7-day shelf-life stock. Simulator results, not yet estimates of Eddy's savings. Figure: Eddy's FYP team.</figcaption>
+  </figure>
+
+  <h2>Where the project stands</h2>
+  <p>All four prototypes have been running since 5 October 2026, and the project has 244 automated tests. We have written two literature reviews, a data request and a data-cleaning protocol, and met Eddy's on 26 October. Eddy's data is on the critical path. To limit the delay, we built a clearly labelled stand-in dataset (728 days, 4 branches, 12 dishes) so the full pipeline is ready to run on the day the real data arrives. In FYP II (Spring 2027) we will integrate the four components, recalibrate them on Eddy's data and validate them in a live demonstration.</p>
+  <figure>
+    <img src="assets/fyp-gantt.png" alt="Updated Gantt chart for FYP I, Fall 2026, showing tasks by week with critical-path tasks marked.">
+    <figcaption>Updated FYP I timeline from our October progress report. An asterisk marks a task on the critical path. Figure: Eddy's FYP team.</figcaption>
+  </figure>
+
+  <div class="reflection">
+    <h3>Reflection</h3>
+    <h4>What I learned</h4>
+    <p>The biggest lesson was that the best forecast is not automatically the best decision. In INDE 431 (Production Planning and Inventory Control), safety stock and service levels were separate chapters from forecasting. In this project I saw how tightly they depend on each other. A buffer that assumes demand is known comes out too small when demand is forecast, so the forecast's own error has to feed the inventory decision. I now judge a model by the cost of the decisions it drives, not only by its accuracy.</p>
+    <h4>Connecting to my coursework</h4>
+    <p>The forecasting work draws directly on INDE 535 (Data Analytics for OR and Financial Engineering): train and test splits, a held-out week, and confidence intervals on the error rather than a single number. INDE 431 gave me the reorder-point and order-up-to rules that our simulator compares. The discipline of always beating a simple benchmark before claiming success came from the literature and from my advisor's insistence that every method be justified by evidence and tests.</p>
+    <h4>Other perspectives</h4>
+    <p>Our meeting with Eddy's changed how I see the problem. Branch staff order more when they expect a busy day, a kind of judgment our data does not capture, which is why we keep people in charge of the final order. Working in a five-person team also taught me to design my piece so that others can rely on it. The inventory work depends on my forecast ranges, so I had to make them calibrated, documented and tested, not just accurate.</p>
+    <h4>Challenges</h4>
+    <p>The partner data arrived late, which I could not control. Instead of waiting, we built everything on public data and a labelled stand-in dataset, and we were careful never to present simulator results as Eddy's actual savings. Being honest about what each result is based on is a habit I intend to keep.</p>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Randi Ghazal · Industrial Engineering, AUB</span>
+  <span><a href="mailto:rhg09@mail.aub.edu">rhg09@mail.aub.edu</a> · <a href="https://www.linkedin.com/in/randi-ghazal-7138972a2/" target="_blank" rel="noopener">LinkedIn</a></span>
+</footer>
+</body>
+</html>
