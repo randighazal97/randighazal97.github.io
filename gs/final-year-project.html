@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+:root {
+--maroon: #7a1531;
+--maroon-soft: #f6eef1;
+--ink: #1d1d22;
+--muted: #5d5d68;
+--line: #e4e1e3;
+--bg: #fdfcfb;
+--card: #ffffff;
+--max: 1040px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--ink);
+font-family: 'Source Serif 4', Georgia, serif;
+font-size: 18px;
+line-height: 1.65;
+}
+h1, h2, h3, h4, nav, .eyebrow, .tag, .btn, .stat b, figcaption, footer, .meta {
+font-family: 'Inter', system-ui, sans-serif;
+}
+a { color: var(--maroon); }
+img { max-width: 100%; height: auto; display: block; }
+/* ---------- header / nav ---------- */
+header.site {
+position: sticky; top: 0; z-index: 10;
+background: rgba(253,252,251,.94);
+backdrop-filter: blur(6px);
+border-bottom: 1px solid var(--line);
+}
+.bar {
+max-width: var(--max); margin: 0 auto; padding: 14px 20px;
+display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -.01em; }
+.brand span { color: var(--maroon); }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+display: block; padding: 6px 12px; border-radius: 999px;
+color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500;
+}
+nav a:hover { color: var(--maroon); background: var(--maroon-soft); }
+nav a[aria-current="page"] { color: #fff; background: var(--maroon); }
+/* ---------- layout ---------- */
+main { max-width: var(--max); margin: 0 auto; padding: 0 20px 64px; }
+.hero { padding: 64px 0 40px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 600; color: var(--maroon); margin: 0 0 10px; }
+h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; }
+h2 { font-size: 26px; letter-spacing: -.01em; margin: 48px 0 12px; }
+h3 { font-size: 20px; margin: 28px 0 8px; }
+.lede { font-size: 21px; color: var(--muted); max-width: 46em; margin: 0; }
+p { max-width: 46em; }
+.meta { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+/* ---------- components ---------- */
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.card {
+background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+a.card { color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; display: block; }
+a.card:hover { border-color: var(--maroon); transform: translateY(-2px); }
+.card .more { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; color: var(--maroon); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; padding: 0; list-style: none; }
+.tag { font-size: 13px; background: var(--maroon-soft); color: var(--maroon); padding: 3px 10px; border-radius: 999px; font-weight: 500; }
+.stats { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 24px 0; }
+.stat { border-left: 3px solid var(--maroon); padding: 4px 0 4px 14px; }
+.stat b { display: block; font-size: 28px; line-height: 1.2; }
+.stat span { font-size: 15px; color: var(--muted); }
+.reflection {
+background: var(--maroon-soft); border-radius: 14px; padding: 24px 28px; margin: 28px 0;
+}
+.reflection h3 { margin-top: 0; color: var(--maroon); }
+.reflection h4 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--maroon); margin: 20px 0 4px; }
+.reflection p { margin: 0 0 8px; }
+figure { margin: 28px 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+.btn {
+display: inline-block; padding: 10px 18px; border-radius: 10px; font-size: 15px; font-weight: 600;
+background: var(--maroon); color: #fff; text-decoration: none; margin: 4px 8px 4px 0;
+}
+.btn.ghost { background: transparent; color: var(--maroon); border: 1.5px solid var(--maroon); }
+.timeline { list-style: none; padding: 0; margin: 20px 0; border-left: 2px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 22px 22px; }
+.timeline li::before {
+content: ''; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px;
+border-radius: 50%; background: var(--maroon);
+}
+.timeline .meta { margin: 0; }
+.onpage { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
+.onpage a { font-family: 'Inter', sans-serif; font-size: 14px; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--ink); background: #fff; }
+.onpage a:hover { border-color: var(--maroon); color: var(--maroon); }
+section.project { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 48px; scroll-margin-top: 80px; }
+footer {
+border-top: 1px solid var(--line); color: var(--muted); font-size: 14px;
+max-width: var(--max); margin: 0 auto; padding: 24px 20px 40px;
+display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+footer a { color: var(--muted); }
+@media (max-width: 640px) {
+body { font-size: 17px; }
+.bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+nav a { padding: 5px 10px; font-size: 14px; }
+.hero { padding: 36px 0 28px; }
+.reflection { padding: 20px; }
+}
+body{background:#fff;margin:0}
+main{padding:0 16px 24px}
+.hero{padding:16px 0 28px;margin-bottom:28px}
+</style></head><body><main>
+<section class="hero">
+<p class="eyebrow">Final Year Project · INDE 501 / 502 · 2026–2027</p>
+<h1>An AI-powered franchise intelligence platform for Eddy's Hospitality Group</h1>
+<p class="lede">Eddy's runs three Lebanese street-food brands across seven branches, around the clock, and still orders stock from experience. Our team is building four working prototypes that help the group decide what to prepare, what to order and what to put on the menu. People stay in charge of the final decision.</p>
+<ul class="tags">
+<li class="tag">Demand forecasting</li><li class="tag">Inventory policy</li><li class="tag">Machine learning</li><li class="tag">Simulation</li><li class="tag">Python</li>
+</ul>
+<p class="meta">Team: Omar Makarem (project manager), Randi Ghazal, Jane Salameh, Sirine Abi Haidar, Ramzi Doughan · Advisor: Dr. Maher Nouiehed</p>
+</section>
+<h2>The problem</h2>
+<p>Perishable food makes ordering a two-sided risk. If a branch orders too little, it runs out. If it orders too much, the surplus is thrown away. Roast beef at Eddy's lasts about two days, and branches order tomorrow's kaake from yesterday's sales. A busy day can empty the shelf, and a quiet one leaves waste. Sales records also understate demand: when an item sells out, recorded sales stop even though customers still wanted it.</p>
+<h2>My role: demand forecasting lead</h2>
+<p>Of the project's four objectives (warehouse management, demand forecasting, menu update and an internal dashboard), I lead <strong>demand forecasting</strong>. The goal is a daily forecast for each dish and branch, one to seven days ahead, with a low-to-high range rather than a single number. Because Eddy's own data had not arrived yet, I built and tested the method on a public dataset of 8,000 fresh-retail item-store series (FreshRetailNet-50K). The plan is to rerun every test on Eddy's records as soon as they arrive.</p>
+<ul>
+<li>Compared sixteen forecasting methods, from simple averages to pretrained models such as Chronos, against a plain 7-day-average benchmark.</li>
+<li>Selected an average of five boosted-tree models as the final model: <strong>32.0% error against 35.7%</strong> for the benchmark on a held-out week, 3.75 points better (95% interval 3.5 to 4.1).</li>
+<li>Added forecast ranges and calibrated them so that the 80% range covers 82.6% of outcomes, up from 73.5% before calibration.</li>
+<li>Next steps this semester: an interpretable second-opinion model, recovering hidden demand from hourly sell-out times, and stress-testing the 18 assumptions behind our stand-in dataset.</li>
+</ul>
+<figure>
+<img src="https://randighazal97.github.io/assets/fyp-forecast-errors.png" alt="Dot chart of forecast error by method on a held-out week. The average of five boosted models scores 32.0%, against 35.7% for the 7-day average.">
+<figcaption>Forecast error of each method on a week the models had never seen, with 95% intervals. The boosted blend wins by a modest but real margin. Public data (FreshRetailNet-50K). Figure: Eddy's FYP team.</figcaption>
+</figure>
+<h2>The result that surprised us</h2>
+<p>A more accurate forecast did not give cheaper stock at first. With the textbook safety buffer, the forecast-driven policy cost 6% <em>more</em> than ordering from a plain recent average. It became 14% cheaper only after we sized the buffer from our own forecast errors and set the service target from the real cost of a lost sale compared with the cost of waste. The literature on forecasting for inventory reports the same pattern.</p>
+<figure>
+<img src="https://randighazal97.github.io/assets/fyp-policy-costs.png" alt="Bar chart of cost per unit sold for five ordering rules. The reorder-point rule with a forecast model and a buffer aimed at the cost ratio is cheapest at 0.228.">
+<figcaption>Cost per unit sold in our kitchen simulator (600 items, 30 days, assumed costs) for 7-day shelf-life stock. Simulator results, not yet estimates of Eddy's savings. Figure: Eddy's FYP team.</figcaption>
+</figure>
+<h2>Where the project stands</h2>
+<p>All four prototypes have been running since 5 October 2026, and the project has 244 automated tests. We have written two literature reviews, a data request and a data-cleaning protocol, and met Eddy's on 26 October. Eddy's data is on the critical path. To limit the delay, we built a clearly labelled stand-in dataset (728 days, 4 branches, 12 dishes) so the full pipeline is ready to run on the day the real data arrives. In FYP II (Spring 2027) we will integrate the four components, recalibrate them on Eddy's data and validate them in a live demonstration.</p>
+<figure>
+<img src="https://randighazal97.github.io/assets/fyp-gantt.png" alt="Updated Gantt chart for FYP I, Fall 2026, showing tasks by week with critical-path tasks marked.">
+<figcaption>Updated FYP I timeline from our October progress report. An asterisk marks a task on the critical path. Figure: Eddy's FYP team.</figcaption>
+</figure>
+<div class="reflection">
+<h3>Reflection</h3>
+<h4>What I learned</h4>
+<p>The biggest lesson was that the best forecast is not automatically the best decision. In INDE 431 (Production Planning and Inventory Control), safety stock and service levels were separate chapters from forecasting. In this project I saw how tightly they depend on each other. A buffer that assumes demand is known comes out too small when demand is forecast, so the forecast's own error has to feed the inventory decision. I now judge a model by the cost of the decisions it drives, not only by its accuracy.</p>
+<h4>Connecting to my coursework</h4>
+<p>The forecasting work draws directly on INDE 535 (Data Analytics for OR and Financial Engineering): train and test splits, a held-out week, and confidence intervals on the error rather than a single number. INDE 431 gave me the reorder-point and order-up-to rules that our simulator compares. The discipline of always beating a simple benchmark before claiming success came from the literature and from my advisor's insistence that every method be justified by evidence and tests.</p>
+<h4>Other perspectives</h4>
+<p>Our meeting with Eddy's changed how I see the problem. Branch staff order more when they expect a busy day, a kind of judgment our data does not capture, which is why we keep people in charge of the final order. Working in a five-person team also taught me to design my piece so that others can rely on it. The inventory work depends on my forecast ranges, so I had to make them calibrated, documented and tested, not just accurate.</p>
+<h4>Challenges</h4>
+<p>The partner data arrived late, which I could not control. Instead of waiting, we built everything on public data and a labelled stand-in dataset, and we were careful never to present simulator results as Eddy's actual savings. Being honest about what each result is based on is a habit I intend to keep.</p>
+</div>
+</main></body></html>

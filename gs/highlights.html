@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+:root {
+--maroon: #7a1531;
+--maroon-soft: #f6eef1;
+--ink: #1d1d22;
+--muted: #5d5d68;
+--line: #e4e1e3;
+--bg: #fdfcfb;
+--card: #ffffff;
+--max: 1040px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--ink);
+font-family: 'Source Serif 4', Georgia, serif;
+font-size: 18px;
+line-height: 1.65;
+}
+h1, h2, h3, h4, nav, .eyebrow, .tag, .btn, .stat b, figcaption, footer, .meta {
+font-family: 'Inter', system-ui, sans-serif;
+}
+a { color: var(--maroon); }
+img { max-width: 100%; height: auto; display: block; }
+/* ---------- header / nav ---------- */
+header.site {
+position: sticky; top: 0; z-index: 10;
+background: rgba(253,252,251,.94);
+backdrop-filter: blur(6px);
+border-bottom: 1px solid var(--line);
+}
+.bar {
+max-width: var(--max); margin: 0 auto; padding: 14px 20px;
+display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -.01em; }
+.brand span { color: var(--maroon); }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+display: block; padding: 6px 12px; border-radius: 999px;
+color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500;
+}
+nav a:hover { color: var(--maroon); background: var(--maroon-soft); }
+nav a[aria-current="page"] { color: #fff; background: var(--maroon); }
+/* ---------- layout ---------- */
+main { max-width: var(--max); margin: 0 auto; padding: 0 20px 64px; }
+.hero { padding: 64px 0 40px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 600; color: var(--maroon); margin: 0 0 10px; }
+h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; }
+h2 { font-size: 26px; letter-spacing: -.01em; margin: 48px 0 12px; }
+h3 { font-size: 20px; margin: 28px 0 8px; }
+.lede { font-size: 21px; color: var(--muted); max-width: 46em; margin: 0; }
+p { max-width: 46em; }
+.meta { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+/* ---------- components ---------- */
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.card {
+background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+a.card { color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; display: block; }
+a.card:hover { border-color: var(--maroon); transform: translateY(-2px); }
+.card .more { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; color: var(--maroon); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; padding: 0; list-style: none; }
+.tag { font-size: 13px; background: var(--maroon-soft); color: var(--maroon); padding: 3px 10px; border-radius: 999px; font-weight: 500; }
+.stats { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 24px 0; }
+.stat { border-left: 3px solid var(--maroon); padding: 4px 0 4px 14px; }
+.stat b { display: block; font-size: 28px; line-height: 1.2; }
+.stat span { font-size: 15px; color: var(--muted); }
+.reflection {
+background: var(--maroon-soft); border-radius: 14px; padding: 24px 28px; margin: 28px 0;
+}
+.reflection h3 { margin-top: 0; color: var(--maroon); }
+.reflection h4 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--maroon); margin: 20px 0 4px; }
+.reflection p { margin: 0 0 8px; }
+figure { margin: 28px 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+.btn {
+display: inline-block; padding: 10px 18px; border-radius: 10px; font-size: 15px; font-weight: 600;
+background: var(--maroon); color: #fff; text-decoration: none; margin: 4px 8px 4px 0;
+}
+.btn.ghost { background: transparent; color: var(--maroon); border: 1.5px solid var(--maroon); }
+.timeline { list-style: none; padding: 0; margin: 20px 0; border-left: 2px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 22px 22px; }
+.timeline li::before {
+content: ''; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px;
+border-radius: 50%; background: var(--maroon);
+}
+.timeline .meta { margin: 0; }
+.onpage { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
+.onpage a { font-family: 'Inter', sans-serif; font-size: 14px; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--ink); background: #fff; }
+.onpage a:hover { border-color: var(--maroon); color: var(--maroon); }
+section.project { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 48px; scroll-margin-top: 80px; }
+footer {
+border-top: 1px solid var(--line); color: var(--muted); font-size: 14px;
+max-width: var(--max); margin: 0 auto; padding: 24px 20px 40px;
+display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+footer a { color: var(--muted); }
+@media (max-width: 640px) {
+body { font-size: 17px; }
+.bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+nav a { padding: 5px 10px; font-size: 14px; }
+.hero { padding: 36px 0 28px; }
+.reflection { padding: 20px; }
+}
+body{background:#fff;margin:0}
+main{padding:0 16px 24px}
+.hero{padding:16px 0 28px;margin-bottom:28px}
+</style></head><body><main>
+<section class="hero">
+<p class="eyebrow">Highlights</p>
+<h1>Awards, leadership and what I have learned about myself</h1>
+<p class="lede">The moments I am proudest of, the roles that taught me to lead, and an honest look at my strengths, my challenges and where I am heading.</p>
+</section>
+<h2>Awards and honors</h2>
+<ul class="timeline">
+<li><p class="meta">Fall 2024 to Spring 2026</p><h3 style="margin-top:2px">Dean's Honor List, four consecutive semesters</h3><p>Maroun Semaan Faculty of Engineering and Architecture, AUB.</p></li>
+<li><p class="meta">2025</p><h3 style="margin-top:2px">1st Place nationally, LAU Case Competition (with MSD)</h3><p>Supply Chain Manager on a contingency plan for essential medicines. <a href="https://sites.google.com/view/randighazal-portfolio/projects#case" target="_top">See the project →</a></p></li>
+<li><p class="meta">2025</p><h3 style="margin-top:2px">Strategic Excellence Award, IISE AUB × Wolf of Bey</h3><p>For top-tier strategy design for an e-commerce brand.</p></li>
+<li><p class="meta">2025</p><h3 style="margin-top:2px">Interdisciplinary Award, AUB STEM Week</h3><p>With the Beirut 2030 team, among more than 25 participating teams. <a href="https://sites.google.com/view/randighazal-portfolio/projects#beirut2030" target="_top">See the project →</a></p></li>
+<li><p class="meta">High school</p><h3 style="margin-top:2px">Graduated with Distinction, Al Manar Modern School</h3><p>Lebanese Baccalaureate, GPA 3.9/4.0. Founder and President of the Student Council.</p></li>
+</ul>
+<h2>Leadership and service</h2>
+<div class="grid">
+<div class="card">
+<p class="eyebrow">May 2025 to May 2026</p>
+<h3>President, Ras El Matn Youth Club</h3>
+<p>During the war, I coordinated emergency support for families displaced from southern Lebanon, securing safe accommodation and providing food, bedding and on-site safety support. It was logistics under pressure, with people's wellbeing at stake.</p>
+</div>
+<div class="card">
+<p class="eyebrow">August 2025 to present</p>
+<h3>Team Member, Beirut 2030</h3>
+<p>Designing and teaching sustainability sessions in schools and organizing the Junior 2030 Bootcamp. <a href="https://sites.google.com/view/randighazal-portfolio/projects#beirut2030" target="_top">See the project →</a></p>
+</div>
+</div>
+<h2>Skills</h2>
+<div class="grid">
+<div class="card"><h3>Modeling and analytics</h3><p>Mixed-integer and robust optimization, linear programming, discrete-event simulation, demand forecasting, inventory policy, financial modeling.</p></div>
+<div class="card"><h3>Tools</h3><p>Python (optimization and machine-learning libraries), Excel, PowerPoint.</p></div>
+<div class="card"><h3>Languages and certificates</h3><p>Arabic (native), English (fluent), French (basic). BCG Introduction to Strategy Consulting job simulation (Forage).</p></div>
+</div>
+<div class="reflection">
+<h3>Self-assessment: strengths and challenges</h3>
+<h4>Strengths</h4>
+<p><strong>Turning messy situations into structured problems.</strong> Whether it was a battery's fixed charging window at Mindsets, a bootcamp budget with uncertain attendance, or alliances under an electoral law, my instinct is to ask what the decisions, constraints and goal are. Then I build something that can be tested.</p>
+<p><strong>Leading under pressure.</strong> Coordinating support for displaced families, and serving as Supply Chain Manager in a case competition, showed me I can organize people and resources when time is short and the stakes are real.</p>
+<h4>Challenges I am working on</h4>
+<p><strong>Programming depth.</strong> I came to Python later than to Excel, and I still rate myself as building my skills. My FYP forecasting work and my research are deliberately pushing me to write, test and document code to a professional standard.</p>
+<p><strong>Accepting what I cannot control.</strong> In the FYP, our partner's data arrived late, and there was nothing I could do to speed it up. What I learned was to keep moving with public data and a labelled stand-in, and to be transparent about what each result is based on. I want to bring that calm, honest approach to every project.</p>
+</div>
+<div class="reflection">
+<h3>Looking ahead</h3>
+<p>Across my FYP, internship and projects, one thread keeps appearing: making good decisions when the future is uncertain. I saw it in forecasting restaurant demand, scheduling a battery against volatile prices, building election alliances when voter support is unknown, and keeping medicines available in a crisis.</p>
+<p>After graduating in May 2027, I plan to pursue a master's degree focused on operations research and AI-driven decision-making. I want to deepen my skills in robust and stochastic optimization and machine learning, then apply them in supply chains, energy and the public sector, especially in places like Lebanon where good planning makes a real difference.</p>
+</div>
+</main></body></html>
